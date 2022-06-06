@@ -1,0 +1,122 @@
+$primary: #106aae;
+
+$white: #fff;
+$body-bg: #f8f8f8;
+$gray-100: #babfc7; // $gray-lightest
+$gray-200: #ededed; // $gray-lighter
+$gray-300: #dae1e7; // $gray-light
+$gray-400: #636363;
+$gray-500: #adb5bd;
+$gray-600: #b8c2cc; // $gray
+$gray-700: #4e5154;
+$gray-800: #1e1e1e; // $gray-dark
+$gray-900: #2a2e30;
+$black: #22292f;
+
+$vs-checkbox-radio-border-width: 2px;
+$vs-checkbox-radio-border-color: $gray-600;
+$vs-checkbox-box: 20px;
+$vs-checkbox-box-sm: 15px;
+$vs-checkbox-box-lg: 24px;
+$vs-radio-box: 18px;
+$vs-radio-box-sm: 13px;
+$vs-radio-box-lg: 22px;
+
+.vx-checkbox-con {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0.25rem 0;
+    input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 200;
+      cursor: pointer;
+      top: 0;
+      &:checked {
+        ~ .vx-checkbox {
+          transform: rotate(0deg);
+          border-color: $primary;
+          .vx-checkbox--check {
+            transform: translate(0);
+            background-color: $primary;
+            .vx-icon {
+              transform: translate(0);
+              line-height: 1.2;
+              opacity: 1;
+            }
+          }
+          &.vx-checkbox-sm {
+            .vx-checkbox--check .vx-icon {
+              font-size: 0.75rem;
+            }
+          }
+          &.vx-checkbox-lg {
+            .vx-checkbox--check .vx-icon {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+      &:active:checked + .vx-checkbox {
+        .vx-checkbox--check {
+          transform: translate(3px);
+          background-color: $primary;
+          .vx-icon {
+            opacity: 1;
+            transform: translate(6px);
+          }
+        }
+      }
+      &:disabled {
+        cursor: default;
+        pointer-events: none;
+        + .vx-checkbox {
+          cursor: default;
+          opacity: 0.5;
+        }
+      }
+    }
+    .vx-checkbox {
+      cursor: pointer;
+      position: relative;
+      width: $vs-checkbox-box;
+      height: $vs-checkbox-box;
+      border-width: $vs-checkbox-radio-border-width;
+      border-style: solid;
+      border-color: $vs-checkbox-radio-border-color;
+      border-radius: 2px;
+      transform: rotate(-90deg);
+      transition: all 0.2s ease;
+      overflow: hidden;
+      margin-right: 0.5rem;
+      &.vx-checkbox-sm {
+        width: $vs-checkbox-box-sm;
+        height: $vs-checkbox-box-sm;
+      }
+      &.vx-checkbox-lg {
+        width: $vs-checkbox-box-lg;
+        height: $vs-checkbox-box-lg;
+      }
+      .vx-checkbox--check {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        left: 0;
+        transform: translate(100%);
+        transform-origin: right;
+        transition: all 0.2s ease;
+        z-index: 10;
+        .vx-icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $white;
+        }
+      }
+    }
+  }

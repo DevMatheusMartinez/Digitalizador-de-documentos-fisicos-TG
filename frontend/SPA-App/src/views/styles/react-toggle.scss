@@ -1,0 +1,61 @@
+$switchIconColor: #464646;
+
+.react-toggle-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .react-toggle,
+  .react-toggle:hover:not(.react-toggle--disabled) {
+    margin-right: 1rem;
+    &:focus {
+      outline: 0;
+    }
+    .react-toggle-track {
+      background-color: #e2e2e2;
+      .react-toggle-track-x {
+        path {
+          fill: $switchIconColor;
+        }
+      }
+      .react-toggle-track-check {
+        path,
+        polygon {
+          stroke: white;
+        }
+      }
+    }
+    &.react-toggle--checked {
+      .react-toggle-track {
+        background-color: #106aae;
+      }
+    }
+    .react-toggle-thumb {
+      border: 0;
+      background-color: white;
+      &:focus {
+        outline: 0;
+      }
+    }
+    &.react-toggle--focus {
+      .react-toggle-thumb {
+        box-shadow: none;
+      }
+    }
+    &.switch-danger {
+      .react-toggle-track {
+        background-color: red;
+        .react-toggle-track-x,
+        .react-toggle-track-check {
+          path {
+            fill: white;
+          }
+        }
+      }
+      &.react-toggle--checked {
+        .react-toggle-track {
+          background-color: forestgreen;
+        }
+      }
+    }
+  }
+}
